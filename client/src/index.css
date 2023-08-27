@@ -1,0 +1,240 @@
+body{
+    margin:0;
+    padding: 01;
+    background-color: rgb(116, 155, 194);
+    display:flex;
+    justify-content:center;
+    font-family:'Trebuchet MS', Arial, sans-serif;
+}
+
+
+.app{
+    background-color:rgb(145, 200, 228);
+    box-shadow: rgba(0,0,0, 0.10) 0 6px 24px, rgba(0,0,0, 0.08) 0 0 0 1px;
+    border-radius: 10px;
+    padding: 10px;
+    width:800px;
+    margin-top: 50px;
+    width: 50vw;
+
+    min-height:50vh;
+    
+
+}
+
+
+.button-container, .info-container {
+    display: flex;
+    align-items: center;
+}
+
+.button-container button,.create ,.edit{
+    margin: 0 5px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color:rgb(246, 244, 235);
+    color:black;
+    text-transform: uppercase;
+    border: 1.5px solid rgb(116, 155, 194);
+}
+
+.button-container button:hover, .create:hover, .edit:hover{
+    background-color: rgb(131,138,172);
+}
+
+.button-container button:active, .create:active, .edit:active{
+ 
+    background-color:  rgb(108,115,148);
+    color: rgb(255,255,255);
+} 
+
+
+
+
+input {
+    margin:11px 0 ;
+    padding: 12px 0;
+    border-radius: 12px;
+    border: 1.5px solid rgb(230, 232 , 233)
+}
+
+
+/* List Header */
+.list-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: rgba(0,0,0, 0.05) 1px solid;
+    
+}
+
+/* List Item */
+
+.list-item{
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 3px;
+    box-shadow: rgba(70,130,169,0.6) 0 0 0 2px;
+    display:flex;
+    justify-content:space-between;
+}
+
+
+.tick {
+    padding: 10px;
+}
+
+.tick path {
+    fill: rgb(67, 9, 225);
+    stroke: rgb(67, 9, 225);
+
+
+}
+
+
+/* Modal */
+.overlay{
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100vw;
+    height:100vh;
+    background-color:rgba(0,0,0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.modal {
+    width: 500px;
+    background-color: rgb(255,255,255);
+    padding:40px;
+    border-radius:10px;
+    box-shadow:rgba(0,0,0,0.05) 0 6px 24px 0, rgba(0,0,0,0.08) 0 0 0 1px;
+}
+
+.modal .form-title-container{
+    display:flex;
+    justify-content: space-between;
+}
+
+.modal .form-title-container button{
+    border:none;
+    background-color: transparent;;
+}
+
+
+.modal .form-title-container button:active{
+    color: rgb(255,50,50)
+}
+
+.modal form{
+    display:flex;
+    flex-direction:column;
+}
+
+.modal label{
+    font-size: 13px;
+}
+
+
+/* Auth */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    margin:5px;
+}
+
+.auth-container-box{
+    width: 500px;
+    border-radius: 10px;
+    overflow:hidden;
+    box-shadow: rgba(0,0,0,0.05) 0 6px 24px, rgba(0,0,0,0.08) 0 0 0 1px;
+}
+
+
+.auth-container-box form{
+    display:flex;
+    flex-direction: column;
+    height: 350px;
+    padding: 20px;
+}
+
+.auth-options {
+    display:flex;
+}
+
+.auth-options button{
+    width: 50%;
+    border: none;
+    padding: 10px;
+    color: rgb(35,38,47);
+}
+
+
+.copyright{
+    font-size: 13px;
+    margin: 10px;
+    color:rgb(0,0,0);
+    display: flex;
+    justify-content: center;
+}
+
+.user-email{
+    float:right;
+    font-size: 13px;
+    margin: 10px;
+    color:rgb(0,0,0);
+}
+
+.outer-bar{
+    width: 100%;
+    height: 14px;
+    background-color: rgb(216,216,216);
+    border-radius: 7px;
+    overflow: hidden;
+
+}
+
+.inner-bar{
+    height: 14px;
+}
+
+.task-title{
+    width:300px;
+    padding-left: 15px;
+}
+
+
+@media only screen and (max-width: 980px) {
+    .app {
+      width: 90vw;
+      /* height: 100%; */
+    }
+  
+    input {
+      width: 80%;
+    }
+  
+    .list-item {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .list-item .tick {
+      margin-bottom: 10px;
+    }
+  
+    .task-title {
+      max-width: 200px;
+    }
+  }
+
+
+  @media only screen and (max-width: 400px) {
+    .app {
+      width: 90vw;
+      height: 50%;
+    }
+
+  }
