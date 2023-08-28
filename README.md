@@ -34,7 +34,7 @@ The website is built using the following technologies:
 
 You will need `node.js`installed on your machine.
 
-## 🛠 Installation and Setup Instructions
+## Installation and Setup Instructions
 
 1. Installation: `npm install` for both server and client
 
