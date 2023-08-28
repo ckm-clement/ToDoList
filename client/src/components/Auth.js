@@ -66,9 +66,9 @@ const Auth= () => {
           <form>
             {/* Form heading to dynamically change based on isLogIn */}
             <h2>{isLogIn ? 'Please log in' : 'Please sign up' }</h2>
-            <input type="text" placeholder = "username" onChange ={(e) => setUser(e.target.value)}/>
-            <input type="password" placeholder="password" onChange = {(e) =>setPassword(e.target.value)}/>
-            {!isLogIn && <input type="password" placeholder="confirm password" onChange = {(e) =>setConfirmPassword(e.target.value)}/>}
+            <input type="text" placeholder = "username" class= "auth-credentials" onChange ={(e) => setUser(e.target.value)}/>
+            <input type="password" placeholder="password" class= "auth-credentials" onChange = {(e) =>setPassword(e.target.value)}/>
+            {!isLogIn && <input type="password" placeholder="confirm password" class= "auth-credentials" onChange = {(e) =>setConfirmPassword(e.target.value)}/>}
             <input type="submit" className="create" onClick={(e) => handleSubmit(e,isLogIn ? 'login': 'signup')}/>
             {/* if error state is not null, error message is displayed */}
             {error && <p>{error}</p>} 
