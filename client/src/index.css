@@ -80,15 +80,14 @@ input {
 }
 
 
-.tick {
-    padding: 10px;
+.tick-icon {
+    margin: 10px;
+    background: none;
 }
 
-.tick path {
-    fill: rgb(67, 9, 225);
-    stroke: rgb(67, 9, 225);
-
-
+.tick-icon:hover{
+   fill: rgb(183, 183, 221);
+   cursor: pointer;
 }
 
 
@@ -171,7 +170,7 @@ input {
     color: rgb(35,38,47);
 }
 
-.auth-credentials{
+.auth-credentials, .task-input{
     padding-left:10px;
 }
 
@@ -225,7 +224,7 @@ input {
       align-items: center;
     }
   
-    .list-item .tick {
+    .list-item {
       margin-bottom: 10px;
     }
   
@@ -239,6 +238,13 @@ input {
     .app {
       width: 90vw;
       height: 50%;
+    }
+
+  }
+
+  @media only screen and (max-width: 300px) {
+    .info-container{
+        width: 80%;
     }
 
   }

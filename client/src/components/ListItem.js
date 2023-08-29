@@ -28,6 +28,7 @@ const ListItem= ({task,getData}) => {
       // Displaying the value of the listItem prop
       <li className="list-item">
         <div className="info-container">
+        <TickIcon/>
         <p className="task-title">{task.title}</p>
         <ProgressBar progress={task.progress}/>
         </div>

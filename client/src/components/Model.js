@@ -95,6 +95,7 @@ const Model= ({mode,setShowModal,getData,task}) => {
             </div>
               <form>
                 <input
+                class ="task-input"
                 required
                 maxLength = {30}
                 placeholder = " Your task goes here"
