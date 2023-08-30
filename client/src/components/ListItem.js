@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import Modal from './Model';
 import TickIcon from './TickIcon';
 import ProgressBar from './ProgressBar';
@@ -7,7 +7,14 @@ import ProgressBar from './ProgressBar';
 // Define functional component ListItem that takes a single prop named task
 const ListItem= ({task,getData}) => {
   const [showModal, setShowModal] = useState(false)
+  const [completed, setCompleted] = useState(task.commpleted);
 
+  useEffect(() => {
+    // Fetch and set the initial completed state from the server
+    setCompleted(task.completed);
+  }, [task.completed]);
+
+  
   const deleteData = async(e) => {
     try{
       const response = await fetch(`http://localhost:8000/todos/${task._id}`,{
@@ -24,12 +31,35 @@ const ListItem= ({task,getData}) => {
       console.error(err)
     }
   };
+
+  const toggleCompleted = async () => {
+    try{
+      const response = await fetch(`http://localhost:8000/complete/${task._id}`,{
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({completed:!completed}),
+      });
+      if (response.ok){
+        const updatedTask = await response.json();
+        setCompleted(updatedTask.completed);
+      }else{
+        console.error('Failed to update task');
+      }
+    } catch(error){
+      console.error('Error updating task:' , error);
+    }
+  };
     return (
+
       // Displaying the value of the listItem prop
       <li className="list-item">
         <div className="info-container">
-        <TickIcon/>
-        <p className="task-title">{task.title}</p>
+        <button className="tick-btn" onClick={toggleCompleted}> <TickIcon/></button>
+        <p className="task-title" style={{ textDecoration: completed ? 'line-through' : 'none' }}>
+        {task.title}
+      </p>
         <ProgressBar progress={task.progress}/>
         </div>
 

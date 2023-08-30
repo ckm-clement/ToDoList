@@ -90,6 +90,10 @@ input {
    cursor: pointer;
 }
 
+.tick-btn{
+    background: none;
+    border: none;
+}
 
 /* Modal */
 .overlay{

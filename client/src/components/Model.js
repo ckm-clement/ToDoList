@@ -17,7 +17,7 @@ const Model= ({mode,setShowModal,getData,task}) => {
       title: editMode ? task.title : null,
       progress: editMode ? task.progress: 50 ,
       date: editMode ? task.date : new Date(),
-
+      completed: false
     });
 
 

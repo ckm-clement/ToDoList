@@ -83,7 +83,7 @@ app.get('/todos/:user', async (req,res) => {
 
 // create a new todo
 app.post('/todos', async (req,res) => {
-  const {user, title, progress, date} = req.body;
+  const {user, title, progress, date,completed} = req.body;
   
   // console.log(user, title, progress,date);
   try{  
@@ -91,7 +91,8 @@ app.post('/todos', async (req,res) => {
       user,
       title,
       progress,
-      date
+      date,
+      completed
     });
     const savedTodo = await newTodo.save();
     res.json(savedTodo);
@@ -142,6 +143,23 @@ app.delete('/todos/:_id', async(req,res) =>{
 
 });
 
+
+// complete a task
+
+// Update task completed status
+app.put('/complete/:_id', async (req, res) => {
+  try {
+    const task = await Todo.findByIdAndUpdate(
+      req.params._id,
+      { completed: req.body.completed },
+      { new: true }
+    );
+    res.json(task);
+  } catch (error) {
+    console.error('Error updating task:', error);
+    res.status(500).json({ error: 'Failed to update task' });
+  }
+});
 
 // signup
 app.post('/signup', async (req, res) => {
