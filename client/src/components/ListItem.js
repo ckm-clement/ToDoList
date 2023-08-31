@@ -32,31 +32,42 @@ const ListItem= ({task,getData}) => {
     }
   };
 
-  const toggleCompleted = async () => {
-    try{
-      const response = await fetch(`http://localhost:8000/complete/${task._id}`,{
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({completed:!completed}),
-      });
-      if (response.ok){
-        const updatedTask = await response.json();
-        setCompleted(updatedTask.completed);
-      }else{
-        console.error('Failed to update task');
+  // const toggleCompleted = async () => {
+  //   try{
+  //     const response = await fetch(`http://localhost:8000/complete/${task._id}`,{
+  //       method: 'PUT',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({completed:!completed}),
+  //     });
+  //     if (response.ok){
+  //       const updatedTask = await response.json();
+  //       setCompleted(updatedTask.completed);
+  //     }else{
+  //       console.error('Failed to update task');
+  //     }
+  //   } catch(error){
+  //     console.error('Error updating task:' , error);
+  //   }
+  // };
+
+    const completedTask = async () => {
+      if (completed){
+        deleteData();
       }
-    } catch(error){
-      console.error('Error updating task:' , error);
+      else{
+      alert('Task is not yet completed, complete it first!');
+      }
     }
-  };
+
+
     return (
 
       // Displaying the value of the listItem prop
       <li className="list-item">
         <div className="info-container">
-        <button className="tick-btn" onClick={toggleCompleted}> <TickIcon/></button>
+        <button className="tick-btn" onClick={completedTask} > <TickIcon/></button>
         <p className="task-title" style={{ textDecoration: completed ? 'line-through' : 'none' }}>
         {task.title}
       </p>

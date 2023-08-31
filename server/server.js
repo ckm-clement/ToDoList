@@ -107,10 +107,13 @@ app.put('/todos/:_id',async(req,res)=>{
   const {_id} = req.params;
 
   const {user, title, progress, date} = req.body
+  // console.log('Received progress:', progress); // Add this line
+  const completed = progress == 100;
+
   try{
     const updatedTodo = await Todo.findByIdAndUpdate(
       _id,
-      {user,title,progress,date},
+      {user,title,progress,date,completed},
       {new:true} 
     );
     if (!updatedTodo){
@@ -147,19 +150,19 @@ app.delete('/todos/:_id', async(req,res) =>{
 // complete a task
 
 // Update task completed status
-app.put('/complete/:_id', async (req, res) => {
-  try {
-    const task = await Todo.findByIdAndUpdate(
-      req.params._id,
-      { completed: req.body.completed },
-      { new: true }
-    );
-    res.json(task);
-  } catch (error) {
-    console.error('Error updating task:', error);
-    res.status(500).json({ error: 'Failed to update task' });
-  }
-});
+// app.put('/complete/:_id', async (req, res) => {
+//   try {
+//     const task = await Todo.findByIdAndUpdate(
+//       req.params._id,
+//       { completed: req.body.completed },
+//       { new: true }
+//     );
+//     res.json(task);
+//   } catch (error) {
+//     console.error('Error updating task:', error);
+//     res.status(500).json({ error: 'Failed to update task' });
+//   }
+// });
 
 // signup
 app.post('/signup', async (req, res) => {
