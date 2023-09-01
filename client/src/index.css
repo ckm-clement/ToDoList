@@ -86,7 +86,7 @@ input {
 }
 
 .tick-icon:hover{
-   fill: rgb(183, 183, 221);
+   fill: rgb(81, 246, 21);
    cursor: pointer;
 }
 
@@ -94,6 +94,8 @@ input {
     background: none;
     border: none;
 }
+
+
 
 /* Modal */
 .overlay{
@@ -140,6 +142,9 @@ input {
     font-size: 13px;
 }
 
+.drop-down{
+    margin: 10px 0;
+}
 
 /* Auth */
 .auth-container {

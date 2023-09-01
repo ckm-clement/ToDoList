@@ -23,7 +23,13 @@ const todoSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  completed: Boolean
+  completed: Boolean,
+
+  category: {
+    type: String,
+    required: true
+  }
+
 });
 
 

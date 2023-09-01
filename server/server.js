@@ -83,7 +83,7 @@ app.get('/todos/:user', async (req,res) => {
 
 // create a new todo
 app.post('/todos', async (req,res) => {
-  const {user, title, progress, date,completed} = req.body;
+  const {user, title, progress, date,completed,category} = req.body;
   
   // console.log(user, title, progress,date);
   try{  
@@ -92,7 +92,8 @@ app.post('/todos', async (req,res) => {
       title,
       progress,
       date,
-      completed
+      completed,
+      category
     });
     const savedTodo = await newTodo.save();
     res.json(savedTodo);
@@ -106,14 +107,14 @@ app.post('/todos', async (req,res) => {
 app.put('/todos/:_id',async(req,res)=>{
   const {_id} = req.params;
 
-  const {user, title, progress, date} = req.body
+  const {user, title, progress, date,category} = req.body
   // console.log('Received progress:', progress); // Add this line
   const completed = progress == 100;
 
   try{
     const updatedTodo = await Todo.findByIdAndUpdate(
       _id,
-      {user,title,progress,date,completed},
+      {user,title,progress,date,completed,category},
       {new:true} 
     );
     if (!updatedTodo){

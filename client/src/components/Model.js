@@ -17,7 +17,8 @@ const Model= ({mode,setShowModal,getData,task}) => {
       title: editMode ? task.title : null,
       progress: editMode ? task.progress: 50 ,
       date: editMode ? task.date : new Date(),
-      completed: false
+      completed: false,
+      category: editMode ? task.category : "personal"
     });
 
 
@@ -82,7 +83,7 @@ const Model= ({mode,setShowModal,getData,task}) => {
         [name] : value //update the property specified by the name with the new value
       }));
 
-      // console.log(data);
+     console.log(data);
 
     }
     //return the JSX content of the Model component
@@ -95,7 +96,7 @@ const Model= ({mode,setShowModal,getData,task}) => {
             </div>
               <form>
                 <input
-                class ="task-input"
+                className ="task-input"
                 required
                 maxLength = {30}
                 placeholder = " Your task goes here"
@@ -111,6 +112,15 @@ const Model= ({mode,setShowModal,getData,task}) => {
                 name = "progress"
                 value ={data.progress}
                 onChange = {handleChange} />
+
+                <label for="category">Choose a category:</label> 
+                    <select value = {data.category} className ='drop-down'name="category" id="categories"  onChange = {handleChange} > 
+                        <option value="personal">Personal</option> 
+                        <option value="work">Work</option> 
+                    </select>
+                  
+
+               
                  {titleError && <p className="error">{titleError}</p>}
                 <input className= {mode} type="submit" onClick = {editMode ? editData:postData}/>
               </form>
