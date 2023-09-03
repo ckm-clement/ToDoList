@@ -58,6 +58,14 @@ input {
     border: 1.5px solid rgb(230, 232 , 233)
 }
 
+.category-filter{
+    display: flex;
+    justify-content: center;
+}
+
+.category-filter input[type="radio"] {
+    margin-right: 10px; /* Adjust the value as needed */
+}
 
 /* List Header */
 .list-header{
@@ -218,7 +226,7 @@ input {
 }
 
 
-@media only screen and (max-width: 980px) {
+@media only screen and (max-width: 1024px) {
     .app {
       width: 90vw;
       /* height: 100%; */
