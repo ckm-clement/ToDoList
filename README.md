@@ -9,6 +9,7 @@ My portfolio website is designed to highlight my skills, projects, and achieveme
 - User Authentication: Sign up and log in to your account.
 - Create Tasks: Add new tasks with titles and optional descriptions.
 - Mark as Complete: Check off tasks.
+- Task for two different categories: work and personal
 - Responsive Design: Enjoy the app on both desktop and mobile devices.
 
 ## Technologies Used
