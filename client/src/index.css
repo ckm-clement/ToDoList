@@ -225,10 +225,22 @@ input {
     padding-left: 15px;
 }
 
+@media only screen and (max-width: 1084px) {
 
-@media only screen and (max-width: 1024px) {
+
+    
+
+    
+      .task-title {
+        max-width: 200px;
+      }
+    
+
+  }
+
+@media only screen and (max-width: 980px) {
     .app {
-      width: 90vw;
+      width: 50vw;
       /* height: 100%; */
     }
   
@@ -251,7 +263,7 @@ input {
   }
 
 
-  @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 600px) {
     .app {
       width: 90vw;
       height: 50%;
@@ -259,7 +271,7 @@ input {
 
   }
 
-  @media only screen and (max-width: 300px) {
+  @media only screen and (max-width: 340px) {
     .info-container{
         width: 80%;
     }
