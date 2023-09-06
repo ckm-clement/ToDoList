@@ -18,6 +18,9 @@ const Auth= () => {
   //state variable error, setter function setError initial value of error is null
   const [error,setError] = useState(null);
 
+
+  const [showPassword, setShowPassword] = useState(false);
+
     // console.log(cookies);
     // console.log(user,password,confirmPassword);
     //validation function that uses regex to check if password contains at least one lowercase, one uppercase, one digitm, one special character and minimum length of 8 chars
@@ -67,7 +70,13 @@ const Auth= () => {
             {/* Form heading to dynamically change based on isLogIn */}
             <h2>{isLogIn ? 'Please log in' : 'Please sign up' }</h2>
             <input type="text" placeholder = "username" class= "auth-credentials" onChange ={(e) => setUser(e.target.value)}/>
-            <input type="password" placeholder="password" class= "auth-credentials" onChange = {(e) =>setPassword(e.target.value)}/>
+            <div className="password-input">
+            <input type={showPassword ? 'text' : 'password'} placeholder="password" value = {password} className= "auth-credentials" onChange = {(e) =>setPassword(e.target.value) } />
+            <i
+            className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}
+            onClick={() => setShowPassword(!showPassword)}
+          ></i>
+            </div >
             {!isLogIn && <input type="password" placeholder="confirm password" class= "auth-credentials" onChange = {(e) =>setConfirmPassword(e.target.value)}/>}
             <input type="submit" className="create" onClick={(e) => handleSubmit(e,isLogIn ? 'login': 'signup')}/>
             {/* if error state is not null, error message is displayed */}

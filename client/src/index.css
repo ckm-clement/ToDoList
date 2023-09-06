@@ -225,6 +225,26 @@ input {
     padding-left: 15px;
 }
 
+/* Style the password input container */
+.password-input {
+    position: relative;
+  }
+  
+  /* Style the password input */
+  .password-input input {
+    width: 98%; /* Adjust the padding to make space for the icon */
+  }
+  
+  /* Style the icon */
+  .password-input i {
+    position: absolute;
+    top: 50%;
+    right: 5px; /* Adjust the position as needed */
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+
 @media only screen and (max-width: 1084px) {
 
 
@@ -243,10 +263,7 @@ input {
       width: 50vw;
       /* height: 100%; */
     }
-  
-    input {
-      width: 80%;
-    }
+
   
     .list-item {
       flex-direction: column;
