@@ -13,6 +13,7 @@ const Auth= () => {
 
   const [user, setUser] = useState(null);
   const[password, setPassword] = useState(null);
+
   const[confirmPassword, setConfirmPassword] = useState(null);
 
   //state variable error, setter function setError initial value of error is null
@@ -20,7 +21,7 @@ const Auth= () => {
 
 
   const [showPassword, setShowPassword] = useState(false);
-
+  const [showcfmPassword, setShowcfmPassword] = useState(false);
     // console.log(cookies);
     // console.log(user,password,confirmPassword);
     //validation function that uses regex to check if password contains at least one lowercase, one uppercase, one digitm, one special character and minimum length of 8 chars
@@ -77,7 +78,13 @@ const Auth= () => {
             onClick={() => setShowPassword(!showPassword)}
           ></i>
             </div >
-            {!isLogIn && <input type="password" placeholder="confirm password" class= "auth-credentials" onChange = {(e) =>setConfirmPassword(e.target.value)}/>}
+            {!isLogIn  && <div className="password-input">
+            {!isLogIn && <input type={showcfmPassword? 'text' :'password'} placeholder="confirm password" value= {confirmPassword} class= "auth-credentials" onChange = {(e) =>setConfirmPassword(e.target.value)}/>}
+            <i
+            className={`fa ${showcfmPassword ? 'fa-eye-slash' : 'fa-eye'}`}
+            onClick={() => setShowcfmPassword(!showcfmPassword)}
+          ></i>
+            </div >}
             <input type="submit" className="create" onClick={(e) => handleSubmit(e,isLogIn ? 'login': 'signup')}/>
             {/* if error state is not null, error message is displayed */}
             {error && <p>{error}</p>} 
