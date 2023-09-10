@@ -1,5 +1,6 @@
 import ListHeader from './components/ListHeader';
 import ListItem from './components/ListItem';
+import Categories from './components/Categories';
 import Auth  from './components/Auth';
 import {useEffect, useState} from 'react';
 import { useCookies } from 'react-cookie';
@@ -67,38 +68,7 @@ const App= () => {
         
         <p className = "user-email">Welcome back {user}</p>
               
-        <div className="category-filter">
-          <label>
-            <input
-              type="radio"
-              name="category"
-              value="all"
-              checked={selectedCategory === 'all'}
-              onChange={() => setSelectedCategory('all')}
-            />
-            All
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="category"
-              value="work"
-              checked={selectedCategory === 'work'}
-              onChange={() => setSelectedCategory('work')}
-            />
-            Work
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="category"
-              value="personal"
-              checked={selectedCategory === 'personal'}
-              onChange={() => setSelectedCategory('personal')}
-            />
-            Personal
-          </label>
-      </div>
+       <Categories setSelectedCategory={setSelectedCategory} selectedCategory={selectedCategory}/>
 
           {/* Maps through sortedTasks if exists, render ListItem component for each task, passing key prop with task._id and task prop */}
           { filteredTasks?.map((task)=> <ListItem key={task._id} task={task} getData={getData} />)}
