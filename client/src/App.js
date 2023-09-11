@@ -46,6 +46,12 @@ const App= () => {
   // current state for category to be all
   const [selectedCategory, setSelectedCategory] = useState('all'); //default
   
+  const [ascending, setAscending] = useState(false);
+  
+  const toggleSortingOrder = () => {
+    setAscending(!ascending);
+  };
+
   // return the filtered category
   const filteredTasks = tasks?.filter(task => {
     if (selectedCategory === 'all'){
@@ -53,7 +59,13 @@ const App= () => {
     }
     return task.category ===selectedCategory;
   })
-  .sort((a,b)=> new Date(b.date) - new Date(a.date))
+  .sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+
+    // Toggle sorting order based on the 'ascending' variable
+    return ascending ? dateA - dateB : dateB - dateA;
+  });
 
   // Return what will be rendered on the screen when this component is used
   return (
@@ -67,9 +79,11 @@ const App= () => {
         <ListHeader listName={`📝 ${user} ToDo List`} getData = {getData} /> 
         
         <p className = "user-email">Welcome back {user}</p>
-              
+       
        <Categories setSelectedCategory={setSelectedCategory} selectedCategory={selectedCategory}/>
-
+       <button className = "sort-btn" onClick={toggleSortingOrder}>
+        {ascending ? 'Ascending' : 'Descending'}
+      </button>
           {/* Maps through sortedTasks if exists, render ListItem component for each task, passing key prop with task._id and task prop */}
           { filteredTasks?.map((task)=> <ListItem key={task._id} task={task} getData={getData} />)}
           </>}

@@ -36,6 +36,7 @@ const Categories= ({setSelectedCategory, selectedCategory}) => {
           />
           Personal
         </label>
+  
     </div>
     );
   }
