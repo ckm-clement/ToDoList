@@ -46,8 +46,10 @@ const App= () => {
   // current state for category to be all
   const [selectedCategory, setSelectedCategory] = useState('all'); //default
   
+  // add state variable to track sorting order
   const [ascending, setAscending] = useState(false);
   
+  //Toggle function for sorting order when button is click
   const toggleSortingOrder = () => {
     setAscending(!ascending);
   };
@@ -82,7 +84,7 @@ const App= () => {
        
        <Categories setSelectedCategory={setSelectedCategory} selectedCategory={selectedCategory}/>
        <button className = "sort-btn" onClick={toggleSortingOrder}>
-        {ascending ? 'Ascending' : 'Descending'}
+        {ascending ? 'Asc' : 'Desc'}
       </button>
           {/* Maps through sortedTasks if exists, render ListItem component for each task, passing key prop with task._id and task prop */}
           { filteredTasks?.map((task)=> <ListItem key={task._id} task={task} getData={getData} />)}
